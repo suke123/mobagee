@@ -25,6 +25,8 @@ public class View extends SurfaceView {
     private Score score;
     private TekiLogic tekiLogic;
     private final Object lock;
+    private int za=2;
+
     public View(Context context, Point p) {
         super(context);
         this.context = context;
@@ -133,10 +135,18 @@ public class View extends SurfaceView {
                 synchronized (lock) {
                     drawList.update();
                 }
-                if (tekiList.atari(mikata.getRect()) != null) {
+                if (tekiList.atari(mikata.getRect()) != null) { //当たり判定
+                    Anata.Zanki();
+                    za = Anata.getz();
+                    mikata.set(width / 2, height * 3 / 4);//スタート地点に飛ばす(これをやらないと永遠にzankiが減り続ける)
+
+                    if (za<=0){//残りが０
+                    Anata.Rlive();
                     drawList.stop();
+                    tekiLogic.relive(); //ボスが生き返るよ
                     shutdown = true;
                     break;
+                    }
                 }
                 try {
                     sleep((long) tic);

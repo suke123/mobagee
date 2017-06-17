@@ -4,9 +4,13 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import java.util.HashMap;
 import java.util.Map;
+
+import jp.ac.dendai.c.jtp.myapplication1.mono.Anata;
+
 public class Debug {
     private static boolean mode = false;
     private static Map<String, String> pr;
+    private static int i;
     private static Paint paint = new Paint();
     private Debug() {
         init();
@@ -15,8 +19,9 @@ public class Debug {
         if (mode) return;
         if (pr == null || canvas == null) return;
         paint.setColor(Color.RED);
-        paint.setTextSize(10);
-        canvas.drawText(pr.toString(), 0, 100, paint);
+        paint.setTextSize(30);
+        i= Anata.getz();
+        canvas.drawText(String.valueOf(i), 0, 100, paint);
     }
     public static void init() {
         pr = new HashMap<>();

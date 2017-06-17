@@ -16,6 +16,9 @@ public abstract class AbstractMono implements Mono {
     private int cycle;
     private int clock;
     private Bitmap[] gazou;
+  //  public int zanki;
+
+
     public AbstractMono(Context context, int[] ids) {
         p = new Vect();
         dp = new Vect();
@@ -63,7 +66,7 @@ public abstract class AbstractMono implements Mono {
     }
 
 
-    @Override
+  /*  @Override
     public int houkou(float w,float x,int y,int z) {//px py width height
         if((w < y / 2)&&(x < z / 2))
             return 0;
@@ -75,6 +78,28 @@ public abstract class AbstractMono implements Mono {
             return 3;
 
     }
+    */
+
+      @Override
+    public int houkou(float w,float x,int y,int z) {//px py width height
+          float c = 3/2;
+
+           float a = c*z/y;
+
+          float b = -1*c*z/y;
+
+        if((x < a*w)&&(x < b*w+z))//down
+            return 0;
+        else if((x >= a*w)&&(x >= b*w+z))//up
+            return 1;
+        else if((x >= a*w)&&(x < b*w+z))//left
+            return 2;
+        else//right
+            return 3;
+
+    }
+
+
 
     @Override
     public void setRect() {
@@ -95,6 +120,8 @@ public abstract class AbstractMono implements Mono {
     public boolean isAlive() {
         return alive;
     }
+
+
     @Override
     public void dead() {
         alive = false;

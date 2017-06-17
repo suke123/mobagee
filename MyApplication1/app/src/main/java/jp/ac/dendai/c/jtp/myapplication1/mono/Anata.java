@@ -7,9 +7,11 @@ import jp.ac.dendai.c.jtp.myapplication1.R;
 import jp.ac.dendai.c.jtp.myapplication1.Vect;
 public class Anata extends AbstractShooter implements Mikata {
     private static final int[] ids = {R.drawable.jiki};
-    private final static double shootperiod = 150;
+    private final static double shootperiod = 100;
     private static final Vect tamadp = new Vect(0, -5);
     private double shoottic;
+    private static int zanki = 3;
+
     public Anata(Context context, HanteiList<Shootable> tamalist) {
         super(context, ids, tamalist, new Tama(context));
         shoottic = 0;
@@ -19,6 +21,23 @@ public class Anata extends AbstractShooter implements Mikata {
         if (p.getX() > width) p.setX(width);
         if (p.getX() < -this.width) p.setX(0);
     }
+
+ //   @Override
+    public static void Zanki() {
+        if(zanki>0)
+            zanki--;
+    }
+
+    public static void Rlive() {
+            zanki= 3;
+    }
+
+    public static int getz() {
+        return zanki;
+    }
+
+
+
     @Override
     public void setDirection(MotionEvent event, int width, int height) {
         final double delta = 2;
@@ -29,7 +48,29 @@ public class Anata extends AbstractShooter implements Mikata {
         int g ;
         g = houkou(px,py,width ,height);
 
+      //  int ff = Zanki();
 
+
+        switch (g){
+            case 0:
+                dp.setX(0);
+                dp.setY(-delta);
+                break;
+            case 1:
+                dp.setX(0);
+                dp.setY(delta);
+                break;
+            case 2:
+                dp.setX(-delta);
+                dp.setY(0);
+                break;
+            case 3:
+                dp.setX(delta);
+                dp.setY(0);
+                break;
+        }
+
+/*
         switch (g){
             case 0:
                 dp.setX(-delta);
@@ -48,6 +89,7 @@ public class Anata extends AbstractShooter implements Mikata {
                 dp.setY(delta);
                 break;
         }
+        */
 
     /*    if (px < width / 2) {
             dp.setX(-delta);

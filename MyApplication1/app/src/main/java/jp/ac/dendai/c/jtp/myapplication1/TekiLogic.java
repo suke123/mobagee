@@ -13,6 +13,7 @@ public class TekiLogic {
 
     static boolean u = true;
 
+
     public TekiLogic(Context context, HanteiList<Mono> list) {
         this.context = context;
         this.list = list;
@@ -47,6 +48,10 @@ public class TekiLogic {
             list.add(createZako());
             tic -= period;
         }
+    }
+
+    public void relive(){
+        u = true;
     }
 
 

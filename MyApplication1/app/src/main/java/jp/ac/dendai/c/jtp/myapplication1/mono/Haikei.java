@@ -3,7 +3,7 @@ import android.content.Context;
 
 import jp.ac.dendai.c.jtp.myapplication1.R;
 public class Haikei extends AbstractMono {
-    private static final int[] ids = {R.drawable.haikei1};
+    private static final int[] ids = {R.drawable.haikei2};
     public Haikei(Context context){
         super(context,ids);
         p.set(0,50);
