@@ -120,6 +120,8 @@ public class View extends SurfaceView {
                     tekiLogic.step(tstep, width, height);
                     tekiLogic.step2(tstep, width ,height);
                     tekiLogic.stepSaka(tstep, width ,height); //hennkoutenn
+                    tekiLogic.stepMths(tstep, width ,height);
+                    tekiLogic.stephase(tstep, width ,height);
                   //  tekiLogic.step(tstep, width, height); //hennkoutenn
                 }
                 previous = now;

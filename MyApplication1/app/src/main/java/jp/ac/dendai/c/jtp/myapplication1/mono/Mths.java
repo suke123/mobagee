@@ -1,17 +1,24 @@
 package jp.ac.dendai.c.jtp.myapplication1.mono;
+
 import android.content.Context;
+
 import jp.ac.dendai.c.jtp.myapplication1.R;
 import jp.ac.dendai.c.jtp.myapplication1.Vect;
-public class Zako extends AbstractMono {
-    private static final int[] ids = {R.drawable.gitc};
+
+/**
+ * Created by DE on 2017/06/18.
+ */
+
+public class Mths  extends AbstractMono {
+    private static final int[] ids = {R.drawable.mths};
     private int dpindex;
-    private Vect[] dps = {new Vect(1, 1), new Vect(-1, 1)};
+    private Vect[] dps = {new Vect(1, 0), new Vect(-1, 0)};
     private double dpcycle = 400;
     private double dpcounter;
-    public Zako(Context context) {
+    public Mths(Context context) {
         super(context, ids);
     }
-    public Zako(Context context, int x, int y) {
+    public Mths(Context context, int x, int y) {
         super(context, ids);
         set(x, y);
         dp.set(dps[0]);
@@ -31,7 +38,7 @@ public class Zako extends AbstractMono {
     }
     @Override
     public int getScore() {
-        return 200;
+        return 600;
     }
     @Override
     public void step(double t, int width, int height) {
@@ -49,3 +56,4 @@ public class Zako extends AbstractMono {
         setRect();
     }
 }
+

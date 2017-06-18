@@ -3,7 +3,7 @@ import android.content.Context;
 import jp.ac.dendai.c.jtp.myapplication1.R;
 import jp.ac.dendai.c.jtp.myapplication1.Vect;
 public class Teki extends AbstractMono {
-    private static final int[] ids = {R.drawable.teki1, R.drawable.teki2};
+    private static final int[] ids = {R.drawable.note1};
     private int dpindex;
     private Vect[] dps = {new Vect(1, 2), new Vect(-1, -1)};
     private double dpcycle = 900;

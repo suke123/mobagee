@@ -31,7 +31,7 @@ public class Saka extends AbstractMono {
     }
     @Override
     public int getScore() {
-        return 200;
+        return 2000;
     }
     @Override
     public void step(double t, int width, int height) {
