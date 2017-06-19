@@ -3,9 +3,9 @@ import android.content.Context;
 import jp.ac.dendai.c.jtp.myapplication1.R;
 import jp.ac.dendai.c.jtp.myapplication1.Vect;
 public class Teki extends AbstractMono {
-    private static final int[] ids = {R.drawable.note1};
+    private static final int[] ids = {R.drawable.book2};
     private int dpindex;
-    private Vect[] dps = {new Vect(1, 2), new Vect(-1, -1)};
+    private Vect[] dps = {new Vect(rand(2,true), rand(2,false)), new Vect(rand(2,true), rand(2,false))};
     private double dpcycle = 900;
     private double dpcounter;
     public Teki(Context context) {

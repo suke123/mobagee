@@ -15,4 +15,5 @@ public interface Mono {
     void dead();
     double getInterval();
     void setRect();
+    int rand(int x , boolean u);
 }

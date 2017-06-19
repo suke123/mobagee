@@ -10,7 +10,7 @@ import jp.ac.dendai.c.jtp.myapplication1.mono.Teki;
 import jp.ac.dendai.c.jtp.myapplication1.mono.Zako;
 
 public class TekiLogic {
-    private static double period = 700;
+    private static double period = 1000;
     private final Context context;
     private final HanteiList<Mono> list;
     private double tic;
@@ -27,12 +27,23 @@ public class TekiLogic {
         list.add(createTeki());
     }
 
+    public int appear(int x ){
+        double b;
+        int z=0;
+        b = Math.random();
+        b = b*x;
+        z = (int)b;
+
+        return z;
+    }
+
+
     private Mono createTeki() {
-        return new Teki(context, 400, 50);
+        return new Teki(context, appear(300), 50);
     }
 
     private Mono createZako() {
-        return new Zako(context, 0, 50);
+        return new Zako(context, appear(400), 50);
     }
 
     private Mono createSaka() {

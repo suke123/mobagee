@@ -10,7 +10,7 @@ import jp.ac.dendai.c.jtp.myapplication1.Vect;
  */
 
 public class Mths  extends AbstractMono {
-    private static final int[] ids = {R.drawable.mths};
+    private static final int[] ids = {R.drawable.kaneda};
     private int dpindex;
     private Vect[] dps = {new Vect(1, 0), new Vect(-1, 0)};
     private double dpcycle = 400;

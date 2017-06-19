@@ -99,6 +99,23 @@ public abstract class AbstractMono implements Mono {
 
     }
 
+    @Override
+    public int rand(int x,boolean u){
+        double b;
+        double db=1.0;
+        if(u){
+            db = Math.random();
+            if(db<0.5)
+                db = 1;
+            else
+                db = -1;
+        }
+        int z=0;
+        b = Math.random();
+        b = (b+1)*x*db;
+        z = (int)b ;
+        return z;
+    }
 
 
     @Override

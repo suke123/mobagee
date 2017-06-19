@@ -18,10 +18,10 @@ public class Debug {
     public static void draw(Canvas canvas) {
         if (mode) return;
         if (pr == null || canvas == null) return;
-        paint.setColor(Color.RED);
-        paint.setTextSize(30);
+        paint.setColor(Color.CYAN);
+        paint.setTextSize(40);
         i= Anata.getz();
-        canvas.drawText(String.valueOf(i), 0, 100, paint);
+        canvas.drawText("残:"+String.valueOf(i-1), 0, 100, paint);
     }
     public static void init() {
         pr = new HashMap<>();

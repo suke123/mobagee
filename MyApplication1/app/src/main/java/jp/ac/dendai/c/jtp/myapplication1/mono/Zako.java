@@ -3,7 +3,7 @@ import android.content.Context;
 import jp.ac.dendai.c.jtp.myapplication1.R;
 import jp.ac.dendai.c.jtp.myapplication1.Vect;
 public class Zako extends AbstractMono {
-    private static final int[] ids = {R.drawable.gitc};
+    private static final int[] ids = {R.drawable.book0};
     private int dpindex;
     private Vect[] dps = {new Vect(1, 1), new Vect(-1, 1)};
     private double dpcycle = 400;
