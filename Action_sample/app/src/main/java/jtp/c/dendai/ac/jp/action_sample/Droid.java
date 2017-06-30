@@ -10,8 +10,8 @@ public class Droid {
     private static final float GRAVITY = 0.8f;
     private static final float WEIGHT = GRAVITY * 60;
 
-    private static final int COLLISION_MARGIN_LEFT = 35;
-    private static final int COLLISION_MARGIN_RIGHT = 15;
+    private static final int COLLISION_MARGIN_LEFT = 20;
+    private static final int COLLISION_MARGIN_RIGHT = 20;
 
     private final Paint paint = new Paint();
 
@@ -20,7 +20,7 @@ public class Droid {
     final Rect rect;
     private final Rect drawRect = new Rect();
 
-    private static final int BLOCK_SIZE = 153;
+    private static final int BLOCK_SIZE = 230;
 
     private static final Rect BITMAP_SRC_JUMPING = new Rect(
             BLOCK_SIZE, 0,BLOCK_SIZE * 2, BLOCK_SIZE);

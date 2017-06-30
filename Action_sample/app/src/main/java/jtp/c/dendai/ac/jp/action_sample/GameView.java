@@ -70,14 +70,31 @@ public class GameView extends SurfaceView implements Droid.Callback,
         getHolder().addCallback(this);
     }
 
+    public void drawBG(Canvas canvas,Bitmap bm){
+        int width = canvas.getWidth();
+        int height = canvas.getHeight();
+        boolean u = true;
+
+        Paint paint = new Paint();
+
+            canvas.drawColor(Color.WHITE);
+            //  Canvas canvas1 = holder.lockCanvas();
+
+                    canvas.drawBitmap(bm, 0, 0, paint);
+            u=false;
+
+
+
+    }
+
     public void drawGame(Canvas canvas) {
         int width = canvas.getWidth();
         int height = canvas.getHeight();
 
-        canvas.drawColor(Color.WHITE);
 
+     //   canvas.drawColor(Color.WHITE);
         if (droid == null) {
-            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.droid);
+            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.shika);
             droid = new Droid(bitmap, 0, 0, this);
 
             // 開始時に表示される地面
@@ -207,11 +224,22 @@ public class GameView extends SurfaceView implements Droid.Callback,
 
         @Override
         public void run() {
+         boolean v = true;
             SurfaceHolder holder = getHolder();
 
+            Bitmap robot;
+
+            robot = BitmapFactory.decodeResource(getResources(), R.drawable.sougen);
+
+
             while (!isFinished) {
-                Canvas canvas = holder.lockCanvas();
+                Canvas  canvas = holder.lockCanvas();
                 if (canvas != null) {
+
+                //    if (v){
+                        drawBG(canvas,robot);
+                  //      v = false;
+                 //   }
                     drawGame(canvas);
                     holder.unlockCanvasAndPost(canvas);
                 }
