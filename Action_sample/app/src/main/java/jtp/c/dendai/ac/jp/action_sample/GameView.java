@@ -1,6 +1,19 @@
 package jtp.c.dendai.ac.jp.action_sample;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Point;
+import android.os.Bundle;
+import android.view.Display;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.WindowManager;
+import android.widget.Toast;
+import jtp.c.dendai.ac.jp.action_sample.UnderView;
+
+
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -16,8 +29,10 @@ import java.util.List;
 import java.util.Random;
 
 
-public class GameView extends SurfaceView implements Droid.Callback,
-        SurfaceHolder.Callback {
+public class GameView
+        extends SurfaceView  implements Droid.Callback,
+        SurfaceHolder.Callback
+{
 
     private static final int START_GROUND_HEIGHT = 50;
     private static final int GROUND_MOVE_TO_LEFT = 10;
@@ -48,6 +63,8 @@ public class GameView extends SurfaceView implements Droid.Callback,
 
     private final Random rand = new Random();
 
+
+
     public interface Callback {
         public void onGameOver();
     }
@@ -58,6 +75,8 @@ public class GameView extends SurfaceView implements Droid.Callback,
         this.callback = callback;
     }
 
+
+
     private final Handler handler;
 
     private boolean isGameOver;
@@ -67,8 +86,18 @@ public class GameView extends SurfaceView implements Droid.Callback,
 
         handler = new Handler();
 
-        getHolder().addCallback(this);
+     getHolder().addCallback(this);
     }
+
+    public static Point getDisplaySize(Activity activity){
+        Display display = activity.getWindowManager().getDefaultDisplay();
+        Point point = new Point();
+        display.getSize(point);
+        return point;
+    }
+
+
+
 
     public void drawBG(Canvas canvas,Bitmap bm){
         int width = canvas.getWidth();
@@ -202,6 +231,10 @@ public class GameView extends SurfaceView implements Droid.Callback,
         droid.jump(time / MAX_TOUCH_TIME);
     }
 
+
+
+
+
     private void gameOver() {
         if (isGameOver) {
             return;
@@ -211,12 +244,13 @@ public class GameView extends SurfaceView implements Droid.Callback,
 
         droid.shutdown();
 
-        handler.post(new Runnable() {
+   handler.post(new Runnable() {
             @Override
             public void run() {
                 callback.onGameOver();
             }
         });
+
     }
 
     private class DrawThread extends Thread {

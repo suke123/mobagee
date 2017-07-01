@@ -51,7 +51,7 @@ public class UnderView extends SurfaceView implements Droid.Callback,
     private final Random rand = new Random();
 
     public interface Callback {
-        public void onGameOver();
+        public void onGameOver2();
     }
 
     private Callback callback;
@@ -72,11 +72,28 @@ public class UnderView extends SurfaceView implements Droid.Callback,
         getHolder().addCallback(this);
     }
 
+    public void drawBG(Canvas canvas,Bitmap bm){
+        int width = canvas.getWidth();
+        int height = canvas.getHeight();
+        boolean u = true;
+
+        Paint paint = new Paint();
+
+        canvas.drawColor(Color.WHITE);
+        //  Canvas canvas1 = holder.lockCanvas();
+
+        canvas.drawBitmap(bm, 0, 0, paint);
+        u=false;
+
+
+
+    }
+
     public void drawGame(Canvas canvas) {
         int width = canvas.getWidth();
         int height = canvas.getHeight();
 
-        canvas.drawColor(Color.WHITE);
+        //canvas.drawColor(Color.WHITE);
 
         if (droid == null) {
             Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.shika);
@@ -199,7 +216,7 @@ public class UnderView extends SurfaceView implements Droid.Callback,
         handler.post(new Runnable() {
             @Override
             public void run() {
-                callback.onGameOver();
+                callback.onGameOver2();
             }
         });
     }
@@ -211,9 +228,16 @@ public class UnderView extends SurfaceView implements Droid.Callback,
         public void run() {
             SurfaceHolder holder = getHolder();
 
+
+            Bitmap robot;
+
+            robot = BitmapFactory.decodeResource(getResources(), R.drawable.bg_taiwan);
+
             while (!isFinished) {
                 Canvas canvas = holder.lockCanvas();
                 if (canvas != null) {
+                    drawBG(canvas,robot);
+
                     drawGame(canvas);
                     holder.unlockCanvasAndPost(canvas);
                 }

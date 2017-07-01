@@ -1,15 +1,18 @@
 package jtp.c.dendai.ac.jp.action_sample;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-public class MainActivity extends Activity implements GameView.Callback {
+public class MainActivity extends Activity  implements GameView.Callback ,UnderView.Callback
+{
 
     private GameView gameView;
+    private UnderView underView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,9 +20,12 @@ public class MainActivity extends Activity implements GameView.Callback {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         gameView = new GameView(this);
-        gameView.setCallback(this);
+          gameView.setCallback(this);
+
+
 
         setContentView(gameView);
+
     }
 
     @Override
@@ -56,7 +62,24 @@ public class MainActivity extends Activity implements GameView.Callback {
     }
 
     @Override
-    public void onGameOver() {
-        Toast.makeText(this, "Game Over", Toast.LENGTH_LONG).show();
+    public  void onGameOver() {
+        underView = new UnderView(this);
+    //    gameView.removeCallbacks(super);
+        underView.setCallback(this);
+        setContentView(underView);
+      //  Intent intent = new Intent(getApplication(), UnderView.class);
+      //  startActivity(intent);
+       // Toast.makeText(this, "Game Over", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public  void onGameOver2() {
+        gameView = new GameView(this);
+        //    gameView.removeCallbacks(super);
+        gameView.setCallback(this);
+        setContentView(gameView);
+        //  Intent intent = new Intent(getApplication(), UnderView.class);
+        //  startActivity(intent);
+        // Toast.makeText(this, "Game Over", Toast.LENGTH_LONG).show();
     }
 }
