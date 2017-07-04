@@ -35,6 +35,8 @@ public class UnderView extends SurfaceView implements Droid.Callback,
     private static final float POWER_GAUGE_HEIGHT = 30;
     private static final Paint PAINT_POWER_GAUGE = new Paint();
 
+
+
     static {
         PAINT_POWER_GAUGE.setColor(Color.RED);
     }
@@ -53,6 +55,8 @@ public class UnderView extends SurfaceView implements Droid.Callback,
     public interface Callback {
         public void onGameOver2();
     }
+
+
 
     private Callback callback;
 
@@ -96,7 +100,7 @@ public class UnderView extends SurfaceView implements Droid.Callback,
         //canvas.drawColor(Color.WHITE);
 
         if (droid == null) {
-            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.shika);
+            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.uma3);
             droid = new Droid(bitmap, 0, 0, this);
 
             // 開始時に表示される地面
@@ -209,6 +213,8 @@ public class UnderView extends SurfaceView implements Droid.Callback,
             return;
         }
 
+
+
         isGameOver = true;
 
         droid.shutdown();
@@ -231,7 +237,7 @@ public class UnderView extends SurfaceView implements Droid.Callback,
 
             Bitmap robot;
 
-            robot = BitmapFactory.decodeResource(getResources(), R.drawable.bg_taiwan);
+            robot = BitmapFactory.decodeResource(getResources(), R.drawable.ocean);
 
             while (!isFinished) {
                 Canvas canvas = holder.lockCanvas();

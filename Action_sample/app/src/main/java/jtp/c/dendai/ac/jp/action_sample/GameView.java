@@ -1,25 +1,15 @@
 package jtp.c.dendai.ac.jp.action_sample;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.graphics.Point;
-import android.os.Bundle;
-import android.view.Display;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.WindowManager;
-import android.widget.Toast;
-import jtp.c.dendai.ac.jp.action_sample.UnderView;
-
-
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Point;
 import android.os.Handler;
+import android.view.Display;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -53,13 +43,13 @@ public class GameView
     }
 
     private Droid droid;
-    private final List<Ground> groundList = new ArrayList<Ground>();
+    private final List<Ground2> groundList = new ArrayList<Ground2>();
 
     private long touchDownStartTime;
 
     private DrawThread drawThread;
 
-    private Ground lastGround;
+    private Ground2 lastGround;
 
     private final Random rand = new Random();
 
@@ -68,6 +58,9 @@ public class GameView
     public interface Callback {
         public void onGameOver();
     }
+
+
+
 
     private Callback callback;
 
@@ -123,11 +116,11 @@ public class GameView
 
      //   canvas.drawColor(Color.WHITE);
         if (droid == null) {
-            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.shika);
+            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.uma3);
             droid = new Droid(bitmap, 0, 0, this);
 
             // 開始時に表示される地面
-            lastGround = new Ground(0, height - START_GROUND_HEIGHT, width, height);
+            lastGround = new Ground2(0, height - START_GROUND_HEIGHT, width, height);
             groundList.add(lastGround);
         }
 
@@ -138,16 +131,16 @@ public class GameView
 
                 if (i % 2 == 0) {
                     int groundHeight = rand.nextInt(height / GROUND_BLOCK_HEIGHT) * GROUND_BLOCK_HEIGHT / 2 + START_GROUND_HEIGHT;
-                    lastGround = new Ground(left, height - groundHeight, left + GROUND_WIDTH, height);
+                    lastGround = new Ground2(left, height - groundHeight, left + GROUND_WIDTH, height);
                 } else {
-                    lastGround = new Blank(left, height - 1, left + GROUND_WIDTH, height);
+                    lastGround = new Blank2(left, height - 1, left + GROUND_WIDTH, height);
                 }
                 groundList.add(lastGround);
             }
         }
 
         for (int i = 0; i < groundList.size(); i++) {
-            Ground ground = groundList.get(i);
+            Ground2 ground = groundList.get(i);
 
             if (ground.isAvailable()) {
                 ground.move(GROUND_MOVE_TO_LEFT);
@@ -178,7 +171,7 @@ public class GameView
         int height = getHeight();
 
         for (int i = 0; i < groundList.size(); i++) {
-            Ground ground = groundList.get(i);
+            Ground2 ground = groundList.get(i);
 
             if (!ground.isShown(width, height)) {
                 continue;
@@ -263,7 +256,7 @@ public class GameView
 
             Bitmap robot;
 
-            robot = BitmapFactory.decodeResource(getResources(), R.drawable.sougen);
+            robot = BitmapFactory.decodeResource(getResources(), R.drawable.nangoku);
 
 
             while (!isFinished) {

@@ -5,15 +5,15 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 
-public class Ground {
+public class Ground2 {
     private final Paint paint = new Paint();
 
     final Rect rect;
 
-    public Ground(int left, int top, int right, int bottom) {
+    public Ground2(int left, int top, int right, int bottom) {
         this.rect = new Rect(left, top, right, bottom);
 
-        paint.setColor(Color.rgb(180, 180, 190)); // 茶色
+        paint.setColor(Color.rgb(196, 180, 164)); // 茶色
     }
 
     public void draw(Canvas canvas) {

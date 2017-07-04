@@ -1,10 +1,10 @@
 package jtp.c.dendai.ac.jp.action_sample;
 
-        import android.graphics.Canvas;
+import android.graphics.Canvas;
 
-public class Blank extends Ground {
+public class Blank2 extends Ground2 {
 
-    public Blank(int left, int top, int right, int bottom) {
+    public Blank2(int left, int top, int right, int bottom) {
         super(left, top, right, bottom);
     }
 
