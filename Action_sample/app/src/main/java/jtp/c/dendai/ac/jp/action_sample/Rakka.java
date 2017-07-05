@@ -6,19 +6,19 @@ package jtp.c.dendai.ac.jp.action_sample;
 
 public class Rakka {
 
-    private static int kazu=3;
+    private int kazu = 3;
 
-    public void rakka(){
-        kazu -=1;
+    public void rakka() {
+        kazu -= 1;
 
     }
-    public int getrakka(){
+
+    public int getrakka() {
         return kazu;
     }
 
 
-
-    public void resetr(){
+    public void resetr() {
         kazu = 3;
 
     }

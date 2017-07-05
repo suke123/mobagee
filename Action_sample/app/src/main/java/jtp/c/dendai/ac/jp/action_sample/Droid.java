@@ -24,9 +24,9 @@ public class Droid {
     private static final int BLOCK_SIZE = 230;
 
     private static final Rect BITMAP_SRC_JUMPING = new Rect(
-            BLOCK_SIZE , 0,BLOCK_SIZE * 2 , BLOCK_SIZE);
+            BLOCK_SIZE, 0, BLOCK_SIZE * 2, BLOCK_SIZE);
     private static final Rect BITMAP_SRC_RUNNING = new Rect(
-            0, 0, BLOCK_SIZE , BLOCK_SIZE);
+            0, 0, BLOCK_SIZE, BLOCK_SIZE);
 
     public interface Callback {
 
@@ -59,7 +59,7 @@ public class Droid {
         paint.setColor(Color.BLACK);
 
         canvas.drawBitmap(bitmap, src, drawRect, paint);
-      //  canvas.drawRect(rect,paint);
+        //  canvas.drawRect(rect,paint);
     }
 
     public void jump(float time) {

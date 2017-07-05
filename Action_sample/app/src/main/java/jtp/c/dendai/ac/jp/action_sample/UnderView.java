@@ -16,8 +16,6 @@ import java.util.List;
 import java.util.Random;
 
 
-
-
 public class UnderView extends SurfaceView implements Droid.Callback,
         SurfaceHolder.Callback {
 
@@ -34,7 +32,6 @@ public class UnderView extends SurfaceView implements Droid.Callback,
 
     private static final float POWER_GAUGE_HEIGHT = 30;
     private static final Paint PAINT_POWER_GAUGE = new Paint();
-
 
 
     static {
@@ -59,7 +56,6 @@ public class UnderView extends SurfaceView implements Droid.Callback,
     }
 
 
-
     private Callback callback;
 
     public void setCallback(Callback callback) {
@@ -80,7 +76,7 @@ public class UnderView extends SurfaceView implements Droid.Callback,
         this.gameActivity = gameActivity;
     }
 
-    public void drawBG(Canvas canvas,Bitmap bm){
+    public void drawBG(Canvas canvas, Bitmap bm) {
         int width = canvas.getWidth();
         int height = canvas.getHeight();
         boolean u = true;
@@ -91,8 +87,7 @@ public class UnderView extends SurfaceView implements Droid.Callback,
         //  Canvas canvas1 = holder.lockCanvas();
 
         canvas.drawBitmap(bm, 0, 0, paint);
-        u=false;
-
+        u = false;
 
 
     }
@@ -189,7 +184,7 @@ public class UnderView extends SurfaceView implements Droid.Callback,
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 touchDownStartTime = System.currentTimeMillis();
-                if(gameActivity.getIsDead()){
+                if (gameActivity.getIsDead()) {
                     gameActivity.ToTitle();
                 }
                 return true;
@@ -221,7 +216,6 @@ public class UnderView extends SurfaceView implements Droid.Callback,
         }
 
 
-
         isGameOver = true;
 
         droid.shutdown();
@@ -249,7 +243,7 @@ public class UnderView extends SurfaceView implements Droid.Callback,
             while (!isFinished) {
                 Canvas canvas = holder.lockCanvas();
                 if (canvas != null) {
-                    drawBG(canvas,robot);
+                    drawBG(canvas, robot);
 
                     drawGame(canvas);
                     holder.unlockCanvasAndPost(canvas);

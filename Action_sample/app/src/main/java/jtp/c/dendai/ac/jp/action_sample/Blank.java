@@ -1,6 +1,6 @@
 package jtp.c.dendai.ac.jp.action_sample;
 
-        import android.graphics.Canvas;
+import android.graphics.Canvas;
 
 public class Blank extends Ground {
 
