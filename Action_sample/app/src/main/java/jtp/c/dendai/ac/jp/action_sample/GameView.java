@@ -53,7 +53,7 @@ public class GameView
 
     private final Random rand = new Random();
 
-
+    private GameActivity gameActivity;
 
     public interface Callback {
         public void onGameOver();
@@ -74,12 +74,13 @@ public class GameView
 
     private boolean isGameOver;
 
-    public GameView(Context context) {
+    public GameView(Context context, GameActivity gameActivity) {
         super(context);
 
         handler = new Handler();
+        getHolder().addCallback(this);
 
-     getHolder().addCallback(this);
+        this.gameActivity = gameActivity;
     }
 
     public static Point getDisplaySize(Activity activity){
