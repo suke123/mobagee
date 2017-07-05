@@ -202,6 +202,9 @@ public class GameView
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 touchDownStartTime = System.currentTimeMillis();
+                if(gameActivity.getIsDead()){
+                    gameActivity.ToTitle();
+                }
                 return true;
             case MotionEvent.ACTION_UP:
                 jumpDroid();
