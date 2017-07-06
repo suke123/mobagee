@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         ImageButton startButton = (ImageButton) findViewById(R.id.start_btn);
         TextView textView = (TextView) findViewById(R.id.scoreText);
 
-        Intent intent = new Intent();
+        Intent intent = getIntent();
         textView.setText("LAST GAME ： " + intent.getIntExtra("SCORE", 0));
 
         startButton.setOnClickListener(new android.view.View.OnClickListener() {

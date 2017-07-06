@@ -111,7 +111,7 @@ public class GameActivity extends Activity implements GameView.Callback, UnderVi
         Intent intent = new Intent();
         intent.setClassName("jtp.c.dendai.ac.jp.action_sample", "jtp.c.dendai.ac.jp.action_sample.MainActivity");
         intent.putExtra("SCORE", underView.getScore());
-        intent.putExtra("SCORE", gameView.getScore());
+        intent.putExtra("score", gameView.getScore());
         startActivity(intent);
         //getContext().startActivity(new Intent(getContext(), MainActivity.class));
         gameView.ResetScore();

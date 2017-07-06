@@ -28,7 +28,7 @@ public class Droid {
     private static final Rect BITMAP_SRC_RUNNING = new Rect(
             0, 0, BLOCK_SIZE, BLOCK_SIZE);
 
-    public static int distance;
+    public static int distance = 0;
 
     public interface Callback {
 
