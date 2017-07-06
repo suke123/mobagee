@@ -10,7 +10,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     private Droid droid;
-    int lastscore = 0;
+    //int lastscore = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +20,8 @@ public class MainActivity extends AppCompatActivity {
         ImageButton startButton = (ImageButton) findViewById(R.id.start_btn);
         TextView textView = (TextView) findViewById(R.id.scoreText);
 
-
-        textView.setText("LAST GAME ： " + String.valueOf(lastscore));
+        Intent intent = new Intent();
+        textView.setText("LAST GAME ： " + intent.getIntExtra("SCORE", 0));
 
         startButton.setOnClickListener(new android.view.View.OnClickListener() {
             public void onClick(android.view.View v) {

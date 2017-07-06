@@ -110,6 +110,7 @@ public class GameActivity extends Activity implements GameView.Callback, UnderVi
         // ゲーム画面を起動
         Intent intent = new Intent();
         intent.setClassName("jtp.c.dendai.ac.jp.action_sample", "jtp.c.dendai.ac.jp.action_sample.MainActivity");
+        intent.putExtra("SCORE", underView.getScore());
         startActivity(intent);
         //getContext().startActivity(new Intent(getContext(), MainActivity.class));
     }

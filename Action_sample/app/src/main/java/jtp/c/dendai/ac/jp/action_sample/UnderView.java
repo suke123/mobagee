@@ -53,6 +53,10 @@ public class UnderView extends SurfaceView implements Droid.Callback,
 
     private Paint paint = new Paint();
 
+    public int getScore() {
+        return droid.distance;
+    }
+
     public interface Callback {
         public void onGameOver2();
     }
