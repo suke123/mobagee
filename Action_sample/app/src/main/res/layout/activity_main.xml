@@ -40,8 +40,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/surfuma"
-        android:layout_marginBottom="30dp"
-        android:layout_above="@+id/start_btn"
+        android:layout_above="@+id/scoreText"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="21dp" />
+
+    <TextView
+        android:id="@+id/scoreText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="29dp"
+        android:text="TextView"
+        android:textSize="30sp"
+        android:layout_above="@+id/start_btn"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
