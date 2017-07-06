@@ -197,7 +197,6 @@ public class UnderView extends SurfaceView implements Droid.Callback,
             case MotionEvent.ACTION_DOWN:
                 if (gameActivity.getIsDead()) {
                     gameActivity.ToTitle();
-                    droid.distance = 0;
                 }
                 else{
                     touchDownStartTime = System.currentTimeMillis();
@@ -241,6 +240,10 @@ public class UnderView extends SurfaceView implements Droid.Callback,
                 callback.onGameOver2();
             }
         });
+    }
+
+    public void ResetScore(){
+        droid.distance = 0;
     }
 
     private class DrawThread extends Thread {

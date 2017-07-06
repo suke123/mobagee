@@ -204,7 +204,6 @@ public class GameView
             case MotionEvent.ACTION_DOWN:
                 if (gameActivity.getIsDead()) {
                     gameActivity.ToTitle();
-                    droid.distance = 0;
                 } else {
                     touchDownStartTime = System.currentTimeMillis();
                 }
@@ -248,6 +247,14 @@ public class GameView
             }
         });
 
+    }
+
+    public int getScore() {
+        return droid.distance;
+    }
+
+    public void ResetScore(){
+        droid.distance = 0;
     }
 
     private class DrawThread extends Thread {
