@@ -51,6 +51,8 @@ public class UnderView extends SurfaceView implements Droid.Callback,
 
     private GameActivity gameActivity;
 
+    private Paint paint = new Paint();
+
     public interface Callback {
         public void onGameOver2();
     }
@@ -81,7 +83,7 @@ public class UnderView extends SurfaceView implements Droid.Callback,
         int height = canvas.getHeight();
         boolean u = true;
 
-        Paint paint = new Paint();
+        //Paint paint = new Paint();
 
         canvas.drawColor(Color.WHITE);
         //  Canvas canvas1 = holder.lockCanvas();
@@ -146,6 +148,12 @@ public class UnderView extends SurfaceView implements Droid.Callback,
         droid.move();
 
         droid.draw(canvas);
+
+        paint.setColor(Color.WHITE);
+        //paint.setTextAlign(Paint.Align.RIGHT);
+        String sc = "  " + String.valueOf(droid.distance) + " m";
+        paint.setTextSize(100);
+        canvas.drawText(sc, 0, paint.getTextSize(), paint);
     }
 
     @Override
@@ -183,9 +191,12 @@ public class UnderView extends SurfaceView implements Droid.Callback,
 
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                touchDownStartTime = System.currentTimeMillis();
                 if (gameActivity.getIsDead()) {
                     gameActivity.ToTitle();
+                    droid.distance = 0;
+                }
+                else{
+                    touchDownStartTime = System.currentTimeMillis();
                 }
                 return true;
             case MotionEvent.ACTION_UP:

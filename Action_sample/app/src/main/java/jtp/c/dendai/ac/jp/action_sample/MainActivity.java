@@ -8,6 +8,8 @@ import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Droid droid;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

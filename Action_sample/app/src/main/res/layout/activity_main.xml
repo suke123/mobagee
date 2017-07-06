@@ -34,4 +34,14 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="#00000000"/>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/surfuma"
+        android:layout_marginBottom="30dp"
+        android:layout_above="@+id/start_btn"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
