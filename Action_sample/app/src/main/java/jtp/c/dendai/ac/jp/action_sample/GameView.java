@@ -80,17 +80,17 @@ public class GameView
         this.gameActivity = gameActivity;
     }
 
-    public static Point getDisplaySize(Activity activity) {
+    /*public static Point getDisplaySize(Activity activity) {
         Display display = activity.getWindowManager().getDefaultDisplay();
         Point point = new Point();
         display.getSize(point);
         return point;
-    }
+    }*/
 
 
     public void drawBG(Canvas canvas, Bitmap bm) {
-        int width = canvas.getWidth();
-        int height = canvas.getHeight();
+        //int width = canvas.getWidth();
+        //int height = canvas.getHeight();
         boolean u = true;
 
         //Paint paint = new Paint();
@@ -249,9 +249,9 @@ public class GameView
 
     }
 
-    public int getScore() {
+    /*public int getScore() {
         return droid.distance;
-    }
+    }*/
 
     public void ResetScore(){
         droid.distance = 0;

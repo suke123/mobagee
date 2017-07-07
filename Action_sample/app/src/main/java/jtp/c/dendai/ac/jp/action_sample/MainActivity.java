@@ -20,8 +20,15 @@ public class MainActivity extends AppCompatActivity {
         ImageButton startButton = (ImageButton) findViewById(R.id.start_btn);
         TextView textView = (TextView) findViewById(R.id.scoreText);
 
+        /*ゲーム性おまけ
+        * GameActivityからスコアを受け取る
+        * 受け取った値を表示
+        * */
         Intent intent = getIntent();
         textView.setText("LAST GAME ： " + intent.getIntExtra("SCORE", 0));
+        /*
+        * おまけ終わり
+        */
 
         startButton.setOnClickListener(new android.view.View.OnClickListener() {
             public void onClick(android.view.View v) {

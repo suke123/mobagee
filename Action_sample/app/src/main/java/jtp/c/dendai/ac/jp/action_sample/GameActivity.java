@@ -30,7 +30,6 @@ public class GameActivity extends Activity implements GameView.Callback, UnderVi
         gameView = new GameView(this, this);
         gameView.setCallback(this);
 
-
         setContentView(gameView);
 
     }
@@ -38,14 +37,12 @@ public class GameActivity extends Activity implements GameView.Callback, UnderVi
     @Override
     protected void onResume() {
         super.onResume();
-
         gameView.startDrawThread();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-
         gameView.stopDrawThread();
     }
 
@@ -73,15 +70,13 @@ public class GameActivity extends Activity implements GameView.Callback, UnderVi
         ra.rakka();
         if (ra.getrakka() < 0) {
             Toast.makeText(this, "GAME OVER", Toast.LENGTH_LONG).show();
-            isDead = true;
+            isDead = true; //ゲームオーバーになったからisDeadをtrueにする
             return;
         }
         underView = new UnderView(this, this);
-        //    gameView.removeCallbacks(super);
+
         underView.setCallback(this);
         setContentView(underView);
-        //  Intent intent = new Intent(getApplication(), UnderView.class);
-        //  startActivity(intent);
 
         s = Integer.toString(ra.getrakka());
         Toast.makeText(this, s, Toast.LENGTH_LONG).show();
@@ -96,28 +91,40 @@ public class GameActivity extends Activity implements GameView.Callback, UnderVi
             return;
         }
         gameView = new GameView(this, this);
-        //    gameView.removeCallbacks(super);
+
         gameView.setCallback(this);
         setContentView(gameView);
-        //     ra.rakka();
+
         s = Integer.toString(ra.getrakka());
         Toast.makeText(this, s, Toast.LENGTH_LONG).show();
-        //  Intent intent = new Intent(getApplication(), UnderView.class);
-        //  startActivity(intent);
     }
 
     public void ToTitle() {
         // ゲーム画面を起動
         Intent intent = new Intent();
         intent.setClassName("jtp.c.dendai.ac.jp.action_sample", "jtp.c.dendai.ac.jp.action_sample.MainActivity");
+
+        /*おまけ
+        * タイトル画面にスコアを渡す
+        */
         intent.putExtra("SCORE", underView.getScore());
-        intent.putExtra("score", gameView.getScore());
+        /*
+        * おまけ終わり
+        */
+
         startActivity(intent);
-        //getContext().startActivity(new Intent(getContext(), MainActivity.class));
+
+        /*おまけ
+        * ゲーム画面に表示されているスコアを初期化するメソッドを呼ぶ
+        */
         gameView.ResetScore();
         underView.ResetScore();
+        /*
+        * おまけ終わり
+        */
     }
 
+    //ゲームオーバーになったかどうかを返す
     public boolean getIsDead() {
         return isDead;
     }
