@@ -80,12 +80,12 @@ public class GameView
         this.gameActivity = gameActivity;
     }
 
-    public static Point getDisplaySize(Activity activity) {
+    /*public static Point getDisplaySize(Activity activity) {
         Display display = activity.getWindowManager().getDefaultDisplay();
         Point point = new Point();
         display.getSize(point);
         return point;
-    }
+    }*/
 
 
     public void drawBG(Canvas canvas, Bitmap bm) {
@@ -95,8 +95,6 @@ public class GameView
 
         canvas.drawBitmap(bm, 0, 0, paint);
         u = false;
-
-
     }
 
     public void drawGame(Canvas canvas) {
