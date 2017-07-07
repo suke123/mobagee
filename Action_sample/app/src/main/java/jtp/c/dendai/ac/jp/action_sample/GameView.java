@@ -80,23 +80,18 @@ public class GameView
         this.gameActivity = gameActivity;
     }
 
-    /*public static Point getDisplaySize(Activity activity) {
+    public static Point getDisplaySize(Activity activity) {
         Display display = activity.getWindowManager().getDefaultDisplay();
         Point point = new Point();
         display.getSize(point);
         return point;
-    }*/
+    }
 
 
     public void drawBG(Canvas canvas, Bitmap bm) {
-        //int width = canvas.getWidth();
-        //int height = canvas.getHeight();
         boolean u = true;
 
-        //Paint paint = new Paint();
-
         canvas.drawColor(Color.WHITE);
-        //  Canvas canvas1 = holder.lockCanvas();
 
         canvas.drawBitmap(bm, 0, 0, paint);
         u = false;
@@ -109,7 +104,6 @@ public class GameView
         int height = canvas.getHeight();
 
 
-        //   canvas.drawColor(Color.WHITE);
         if (droid == null) {
             Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.uma3);
             droid = new Droid(bitmap, 0, 0, this);
@@ -160,7 +154,6 @@ public class GameView
         droid.draw(canvas);
 
         paint.setColor(Color.WHITE);
-        //paint.setTextAlign(Paint.Align.RIGHT);
         String sc = "  " + String.valueOf(droid.distance) + " m";
         paint.setTextSize(100);
         canvas.drawText(sc, 0, paint.getTextSize(), paint);
