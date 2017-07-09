@@ -52,7 +52,7 @@ public class GameView
 
     private final Random rand = new Random();
 
-    private GameActivity gameActivity;
+    private GameActivity gameActivity;//
     private Paint paint = new Paint();
 
     public interface Callback {
@@ -71,13 +71,13 @@ public class GameView
 
     private boolean isGameOver;
 
-    public GameView(Context context, GameActivity gameActivity) {
+    public GameView(Context context, GameActivity gameActivity) {//
         super(context);
 
         handler = new Handler();
         getHolder().addCallback(this);
 
-        this.gameActivity = gameActivity;
+        this.gameActivity = gameActivity;//
     }
 
     /*public static Point getDisplaySize(Activity activity) {
@@ -90,9 +90,7 @@ public class GameView
 
     public void drawBG(Canvas canvas, Bitmap bm) {
         boolean u = true;
-
         canvas.drawColor(Color.WHITE);
-
         canvas.drawBitmap(bm, 0, 0, paint);
         u = false;
     }
@@ -150,11 +148,16 @@ public class GameView
         droid.move();
 
         droid.draw(canvas);
-
+        /*
+        *
+        * */
         paint.setColor(Color.WHITE);
         String sc = "  " + String.valueOf(droid.distance) + " m";
         paint.setTextSize(100);
         canvas.drawText(sc, 0, paint.getTextSize(), paint);
+        /*
+        *
+        * */
 
     }
 
@@ -192,12 +195,12 @@ public class GameView
     public boolean onTouchEvent(MotionEvent event) {
 
         switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-                if (gameActivity.getIsDead()) {
-                    gameActivity.ToTitle();
-                } else {
-                    touchDownStartTime = System.currentTimeMillis();
-                }
+            case MotionEvent.ACTION_DOWN://
+                if (isGameOver) {//
+                    gameActivity.ToTitle();//
+                } else {//
+                    touchDownStartTime = System.currentTimeMillis();//
+                }//
                 return true;
             case MotionEvent.ACTION_UP:
                 jumpDroid();

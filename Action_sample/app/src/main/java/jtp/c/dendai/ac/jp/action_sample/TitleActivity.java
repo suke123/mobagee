@@ -7,15 +7,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
-
-    private Droid droid;
-    //int lastscore = 0;
+public class TitleActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_title);
 
         ImageButton startButton = (ImageButton) findViewById(R.id.start_btn);
         TextView textView = (TextView) findViewById(R.id.scoreText);

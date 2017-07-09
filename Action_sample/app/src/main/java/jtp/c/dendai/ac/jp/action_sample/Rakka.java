@@ -17,10 +17,9 @@ public class Rakka {
         return kazu;
     }
 
-
-    public void resetr() {
+    /*public void resetr() {
         kazu = 3;
 
-    }
+    }*/
 
 }

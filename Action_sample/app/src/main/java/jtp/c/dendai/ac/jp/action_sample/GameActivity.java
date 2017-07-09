@@ -20,7 +20,6 @@ public class GameActivity extends Activity implements GameView.Callback, UnderVi
     private UnderView underView;
     private String s = new String();
     Rakka ra = new Rakka();
-    public boolean isDead = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +69,6 @@ public class GameActivity extends Activity implements GameView.Callback, UnderVi
         ra.rakka();
         if (ra.getrakka() < 0) {
             Toast.makeText(this, "GAME OVER", Toast.LENGTH_LONG).show();
-            isDead = true; //ゲームオーバーになったからisDeadをtrueにする
             return;
         }
         underView = new UnderView(this, this);
@@ -87,7 +85,6 @@ public class GameActivity extends Activity implements GameView.Callback, UnderVi
         ra.rakka();
         if (ra.getrakka() < 0) {
             Toast.makeText(this, "GAME OVER", Toast.LENGTH_LONG).show();
-            isDead = true;
             return;
         }
         gameView = new GameView(this, this);
@@ -102,7 +99,7 @@ public class GameActivity extends Activity implements GameView.Callback, UnderVi
     public void ToTitle() {
         // ゲーム画面を起動
         Intent intent = new Intent();
-        intent.setClassName("jtp.c.dendai.ac.jp.action_sample", "jtp.c.dendai.ac.jp.action_sample.MainActivity");
+        intent.setClassName("jtp.c.dendai.ac.jp.action_sample", "jtp.c.dendai.ac.jp.action_sample.TitleActivity");
 
         /*おまけ
         * タイトル画面にスコアを渡す
@@ -123,9 +120,5 @@ public class GameActivity extends Activity implements GameView.Callback, UnderVi
         * おまけ終わり
         */
     }
-
-    //ゲームオーバーになったかどうかを返す
-    public boolean getIsDead() {
-        return isDead;
-    }
+    
 }
