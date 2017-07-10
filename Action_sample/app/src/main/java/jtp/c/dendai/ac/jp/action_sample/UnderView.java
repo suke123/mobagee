@@ -52,10 +52,6 @@ public class UnderView extends SurfaceView implements Droid.Callback,
 
     private Paint paint = new Paint();
 
-    public int getScore() {
-        return droid.distance;
-    }
-
     public interface Callback {
         public void onGameOver2();
     }
@@ -235,6 +231,10 @@ public class UnderView extends SurfaceView implements Droid.Callback,
     /*
     * おまけ終わり
     */
+
+    public int getScore() {
+        return droid.distance;
+    }
 
     private class DrawThread extends Thread {
         boolean isFinished;

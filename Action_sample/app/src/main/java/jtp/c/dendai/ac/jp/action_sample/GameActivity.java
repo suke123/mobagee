@@ -120,5 +120,5 @@ public class GameActivity extends Activity implements GameView.Callback, UnderVi
         * おまけ終わり
         */
     }
-    
+
 }

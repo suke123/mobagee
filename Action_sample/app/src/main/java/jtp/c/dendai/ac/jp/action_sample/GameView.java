@@ -80,14 +80,6 @@ public class GameView
         this.gameActivity = gameActivity;//
     }
 
-    /*public static Point getDisplaySize(Activity activity) {
-        Display display = activity.getWindowManager().getDefaultDisplay();
-        Point point = new Point();
-        display.getSize(point);
-        return point;
-    }*/
-
-
     public void drawBG(Canvas canvas, Bitmap bm) {
         boolean u = true;
         canvas.drawColor(Color.WHITE);
@@ -195,12 +187,12 @@ public class GameView
     public boolean onTouchEvent(MotionEvent event) {
 
         switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN://
-                if (isGameOver) {//
-                    gameActivity.ToTitle();//
-                } else {//
-                    touchDownStartTime = System.currentTimeMillis();//
-                }//
+            case MotionEvent.ACTION_DOWN:
+                if (isGameOver) {
+                    gameActivity.ToTitle();
+                } else {
+                    touchDownStartTime = System.currentTimeMillis();
+                }
                 return true;
             case MotionEvent.ACTION_UP:
                 jumpDroid();
@@ -243,10 +235,6 @@ public class GameView
 
     }
 
-    /*public int getScore() {
-        return droid.distance;
-    }*/
-
     public void ResetScore(){
         droid.distance = 0;
     }
@@ -268,10 +256,7 @@ public class GameView
                 Canvas canvas = holder.lockCanvas();
                 if (canvas != null) {
 
-                    //    if (v){
                     drawBG(canvas, robot);
-                    //      v = false;
-                    //   }
                     drawGame(canvas);
                     holder.unlockCanvasAndPost(canvas);
                 }
